@@ -9,137 +9,137 @@
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+      [v-cloak] {opacity: 0; }
+    </style>
   </head>
 
   <body>
-    <!-- Home -->
-    <div id="home" class="big-bg">
-      <div class="home-content wrapper">
-        <h1 class="page-title">Ayaka Kaneko's Portfolio</h1>
+    <div id="app" v-cloak>
+      <header>
         <nav>
-          <ul class="top-nav">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skill">Skill</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#photo">Photo</a></li>
+          <ul class="header-nav">
+            <li v-for="item in links">
+              <a href="#" v-scroll-to="item.link">{{item.value}}</a>
+            </li>
           </ul>
         </nav>
-        <a href="#about"><img src="./images/under.png"></a>
-      </div><!-- /.home-content -->
-    </div><!-- /#home -->
+      </header>
 
-    <!-- About -->
-    <div id="about">
-      <div class="about-content wrapper">
-        <h2 class="content-title">About</h2>
-        <div class="about-items">
-          <div class="details">
-            <h3 class="sub-title">Me</h3>
-            <p>Name：金子 彩香</p>
-            <p>Birthday：1994/02/09</p>
-          </div><!-- /.details -->
+      <!-- Home -->
+      <div id="home" class="big-bg">
+        <div class="home-content wrapper">
+          <h1 class="page-title">Ayaka Kaneko's Portfolio</h1>
+          <nav>
+            <ul class="top-nav">
+              <li><a href="#" v-scroll-to="links[1].link">{{links[1].value}}</a></li>
+              <li><a href="#" v-scroll-to="links[2].link">{{links[2].value}}</a></li>
+              <li><a href="#" v-scroll-to="links[3].link">{{links[3].value}}</a></li>
+              <li><a href="#" v-scroll-to="links[4].link">{{links[4].value}}</a></li>
+            </ul>
+          </nav>
+          <a href="#" v-scroll-to="'#about'"><img src="./images/under.png"></a>
+        </div><!-- /.home-content -->
+      </div><!-- /#home -->
 
-          <div class="details">
-            <h3 class="sub-title">School</h3>
-            <p>H.S.：埼玉県立所沢高等学校</p>
-            <p>Univ：立正大学 心理学部 対人・社会心理学科</p>
-          </div><!-- /.details -->
+      <!-- About -->
+      <div id="about">
+        <div class="about-content wrapper">
+          <h2 class="content-title">About</h2>
+          <div class="about-items">
+            <div class="details">
+              <h3 class="sub-title">Me</h3>
+              <p>Name：金子 彩香</p>
+              <p>Birthday：1994/02/09</p>
+            </div><!-- /.details -->
 
-          <div class="details">
-            <h3 class="sub-title">Work</h3>
-            <p>ソフトウェア開発会社へ入社</p>
-            <p>主にVB.NETを使用して約３年半開発を担当。</p>
-          </div><!-- /.details -->
+            <div class="details">
+              <h3 class="sub-title">School</h3>
+              <p>H.S.：埼玉県立所沢高等学校</p>
+              <p>Univ：立正大学 心理学部 対人・社会心理学科</p>
+            </div><!-- /.details -->
 
-          <div class="details">
-            <h3 class="sub-title">Hobby</h3>
-            <p>①ディズニーへ行くこと</p>
-            <p>②音楽（サックス、ドラム、箏）</p>
-          </div><!-- /.details -->
-        </div><!-- /.about-item -->
-      </div><!-- /.about-content -->
-    </div><!-- /#about -->
+            <div class="details">
+              <h3 class="sub-title">Work</h3>
+              <p>ソフトウェア開発会社へ入社</p>
+              <p>主にVB.NETを使用して約３年半開発を担当。</p>
+            </div><!-- /.details -->
 
-    <!-- skill -->
-    <div id="skill">
-      <div class="skill-content wrapper">
-        <h2 class="content-title">Skill</h2>
-        <div class="skill-wrapper">
-          <h3 class="sub-title">Language</h3>
-          <div class="skill-items">
-            <!-- memo -->
-            <!-- 直書き→外部ファイルに持たせたい -->
-            <!-- 2行に対応する -->
-            <div class="skill-item">
-              <p>VB.net</p>
-            </div><!-- /.skill-item -->
+            <div class="details">
+              <h3 class="sub-title">Hobby</h3>
+              <p>①ディズニーへ行くこと</p>
+              <p>②音楽（サックス、ドラム、箏）</p>
+            </div><!-- /.details -->
+          </div><!-- /.about-item -->
+        </div><!-- /.about-content -->
+      </div><!-- /#about -->
 
-            <div class="skill-item">
-              <p>Java</p>
-            </div><!-- /.skill-item -->
+      <!-- skill -->
+      <div id="skill">
+        <div class="skill-content wrapper">
+          <h2 class="content-title">Skill</h2>
+          <div class="skill-wrapper">
+            <h3 class="sub-title">Language</h3>
+            <div class="skill-items">
+              <div class="skill-item" v-for="item in languages">
+                <p>{{item.value}}</p>
+              </div><!-- /.skill-item -->
+            </div><!-- /.skill-items -->
 
-            <div class="skill-item">
-              <p>C#</p>
-            </div><!-- /.skill-item -->
+            <h3 class="sub-title">DB / Tool etc</h3>
+            <div class="tool-items">
+              <div class="skill-item" v-for="item in otherSkills">
+                <p>{{item.value}}</p>
+              </div><!-- /.tool-item -->
+            </div><!-- /.tool-items -->
+          </div><!-- /.skill-wrapper -->
+        </div><!-- /.skill-content -->
+      </div><!-- /#skill -->
 
-            <div class="skill-item">
-              <p>VB6</p>
-            </div><!-- /.skill-item -->
-          </div><!-- /.skill-items -->
+      <!-- CONTACT -->
+      <div id="contact">
+        <div class="contact-content wrapper">
+          <h2 class="content-title">Contact</h2>
+          <form class="contact" action="#" method="post">
+            <div class="contact-name">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="your-name">
+            </div><!-- /.contact-name -->
 
-          <h3 class="sub-title">DB / Tool etc</h3>
-          <div class="tool-items">
-            <div class="skill-item">
-              <p>SQL Server</p>
-            </div><!-- /.tool-item -->
+            <div class="contact-email">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="your-email">
+            </div><!-- /.contact-email -->
 
-            <div class="skill-item">
-              <p>Visual Studio</p>
-            </div><!-- /.tool-item -->
+            <div class="contact-message">
+              <label for="message">Message</label>
+              <textarea name="your-message" id="message"></textarea>
+            </div><!-- /.contact-message -->
 
-            <div class="skill-item">
-              <p>Eclipce</p>
-            </div><!-- /.tool-item -->
-          </div><!-- /.tool-items -->
-        </div><!-- /.skill-wrapper -->
-      </div><!-- /.skill-content -->
-    </div><!-- /#skill -->
+            <input type="submit" class="button" value="Send">
+          </form>
+        </div><!-- /.contact-content -->
+      </div><!-- /#contact -->
 
-    <!-- CONTACT -->
-    <div id="contact">
-      <div class="contact-content wrapper">
-        <h2 class="content-title">Contact</h2>
-        <form class="contact" action="#" method="post">
-          <div class="contact-name">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="your-name">
-          </div><!-- /.contact-name -->
+      <!-- PHOTO -->
+      <div id="photo" class="big-bg">
+        <div class="photo-content wrapper">
+          <h2 class="content-title">Photo</h2>
+          <p>comming soon...</p>
+        </div><!-- /.photo-content -->
+      </div><!-- /#photo -->
 
-          <div class="contact-email">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="your-email">
-          </div><!-- /.contact-email -->
+      <!-- FOOTER -->
+      <footer>
+        <div class="wrapper">
+          <p><small>&copy; 2019 Ayaka Kaneko</small></p>
+        </div>
+      </footer>
+    </div><!-- /#app -->
 
-          <div class="contact-message">
-            <label for="message">Message</label>
-            <textarea name="your-message" id="message"></textarea>
-          </div><!-- /.contact-message -->
-
-          <input type="submit" class="button" value="Send">
-        </form>
-      </div><!-- /.contact-content -->
-    </div><!-- /#CONTACT -->
-
-    <div id="photo" class="big-bg">
-      <div class="photo-content wrapper">
-        <h2 class="content-title">Photo</h2>
-      </div>
-    </div>
-    <!-- FOOTER -->
-    <footer>
-      <div class="wrapper">
-        <p><small>&copy; 2019 Ayaka Kaneko</small></p>
-      </div>
-    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-scrollto"></script>
+    <script src="main.js"></script>
   </body>
 </html>
