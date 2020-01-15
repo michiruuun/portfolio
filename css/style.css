@@ -37,7 +37,7 @@ nav ul li a:hover {
   font-family: 'Philosopher', selif;
   text-transform: uppercase;
   font-weight: normal;
-  padding: 54px 0 30px 20px;
+  padding: 54px 0 30px 0px;
 }
 .sub-title {
   font-size: 1.5rem;
@@ -148,6 +148,7 @@ header {
   height: 110px;
   text-align: center;
   margin-bottom: 20px;
+  box-shadow: 1px 1px 5px;
 }
 .skill-item p {
   display: flex;
@@ -215,9 +216,32 @@ input[type="submit"] {
 -------------------------------- */
 #photo {
   background-color: #827774;
-  background-blend-mode: multiply;
-  color: #c0c0c0;
   min-height: 100vh;
+  color: #c0c0c0;
+}
+.photo-erea {
+  padding: 0 25px;
+}
+.VueCarousel-pagination {
+  opacity: 0.5;
+}
+.photo-enter {
+  margin-top: 20px 0 50px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+.photo-enter button {
+  color: #24140e;
+  padding: 3px 60px;
+  background-color: #c0c0c0;
+  border-radius: 3px;
+  margin-top: 10px;
+  box-shadow: 1px 1px 5px;
+  cursor: pointer;
+}
+.photo-enter button:hover {
+  background-color: #24140e;
+  color: #c0c0c0;
 }
 
 /* FOOTER

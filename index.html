@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
     <style>
       [v-cloak] {opacity: 0; }
@@ -82,15 +83,21 @@
           <div class="skill-wrapper">
             <h3 class="sub-title">Language</h3>
             <div class="skill-items">
-              <div class="skill-item" v-for="item in languages">
-                <p>{{item.value}}</p>
+              <div class="skill-item" v-for="item in languages"
+                                      v-on:mouseover="item.frontFlg = !item.frontFlg"
+                                      v-on:mouseleave="item.frontFlg = !item.frontFlg">
+                <p v-if="item.frontFlg">{{item.value}}</p>
+                <p v-else>{{item.years}}</p>
               </div><!-- /.skill-item -->
             </div><!-- /.skill-items -->
 
             <h3 class="sub-title">DB / Tool etc</h3>
             <div class="tool-items">
-              <div class="skill-item" v-for="item in otherSkills">
-                <p>{{item.value}}</p>
+              <div class="skill-item" v-for="item in otherSkills"
+                                      v-on:mouseover="item.frontFlg = !item.frontFlg"
+                                      v-on:mouseleave="item.frontFlg = !item.frontFlg">
+                <p v-if="item.frontFlg">{{item.value}}</p>
+                <p v-else>{{item.years}}</p>
               </div><!-- /.tool-item -->
             </div><!-- /.tool-items -->
           </div><!-- /.skill-wrapper -->
@@ -123,12 +130,24 @@
       </div><!-- /#contact -->
 
       <!-- PHOTO -->
-      <div id="photo" class="big-bg">
+      <div id="photo">
         <div class="photo-content wrapper">
           <h2 class="content-title">Photo</h2>
           <div class="photo-erea">
-            <p>comming soon...</p>
-        </div><!-- /.photo-erea -->
+            <carousel :autoplay="true"
+                      :loop="true"
+                      :autoplay-hover-pause="false"
+                      :autoplay-timeout="7000"
+                      :speed="2000">
+              <slide v-for="photo in photos">
+                <img :src="photo.path" :alt="photo.value">
+              </slide>
+            </carousel>
+          </div><!-- /.photo-erea -->
+          <div class="photo-enter">
+            <p>See more?</p>
+            <button class="enter-toPhoto" type="button" name="button" onclick="location.href='#'">Enter</button>
+          </div>
         </div><!-- /.photo-content -->
       </div><!-- /#photo -->
 
